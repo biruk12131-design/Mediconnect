@@ -355,7 +355,7 @@ export default function PrescriptionsView({ prescriptions, onRequestRenewal }: P
 
             {/* Slip Paper Sheet Style Body */}
             <div className="p-6 overflow-y-auto space-y-6 relative bg-gradient-to-b from-slate-900 to-slate-950">
-              {/* Watermarked 'RX' emblem background */}
+              {/* Stylized 'RX' backdrop background */}
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-slate-800/10 font-bold text-9xl pointer-events-none select-none font-mono">
                 Rx
               </div>
@@ -400,7 +400,7 @@ export default function PrescriptionsView({ prescriptions, onRequestRenewal }: P
                 </p>
               </div>
 
-              {/* Refills and metadata */}
+              {/* Refills and status indicators */}
               <div className="grid grid-cols-2 gap-3 bg-slate-950 p-3.5 rounded-xl border border-slate-850 text-xs font-mono font-bold text-slate-400">
                 <div className="flex justify-between items-center">
                   <span>Refills Appended:</span>
