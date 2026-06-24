@@ -1,0 +1,9 @@
+{
+  "name": "MediConnect",
+  "description": "Comprehensive and highly-polished simulated telemedicine platform featuring a patient dashboard, appointment scheduler, searchable doctor index, virtual video consultation room, prescription management, and settings.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
