@@ -9,12 +9,12 @@ A full‑stack telehealth platform with patient, doctor, and admin dashboards. B
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## 🚀 Live Demo
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000?logo=vercel)](https://medicare-telehealth.vercel.app)  
-*(Replace with your actual Vercel URL)*
+https://mediconnect-845882354658.europe-west2.run.app/
 
 ## 📸 Screenshots
-*(Add screenshots of Patient Dashboard, Doctor Dashboard, Admin Dashboard, Video Consultation UI)*
 
+
+![Mediconnect](IMG_20260625_002151.jpg)
 ## 🏆 Lighthouse Targets
 - **Performance:** 90+
 - **Accessibility:** 100
@@ -92,9 +92,6 @@ mediconnect/
 ├── .gitignore
 └── README.md
 ```
-
-
-# screenshot
 
 
 ## 🛠️ Getting Started
