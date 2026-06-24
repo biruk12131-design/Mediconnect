@@ -1,60 +1,113 @@
-# MediConnect Telemedicine Platform
+# MediCare TeleHealth
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+A full‑stack telehealth platform with patient, doctor, and admin dashboards. Built with Next.js 14, Tailwind CSS, and mock data to simulate a real‑world healthcare system.
 
-A modern, highly-polished simulated telemedicine and outpatient patient portal dashboard system titled **MediConnect**. The application uses **React 19 + TypeScript** on a fast-loading **Vite** pipeline with complete light/dark display modes, interactive multi-step scheduling adapters, micro-status renewals, and an integrated audio/video peer-to-peer virtual consultation simulation suite.
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38bdf8?logo=tailwindcss)
+![Chart.js](https://img.shields.io/badge/Chart.js-4-ff6384?logo=chartdotjs)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-## 🎯 Target Lighthouse Indicators
-- ⚡ **Performance**: `95+` (Zero heavy bundle size, assets cached via LocalStorage state triggers)
-- ♿ **Accessibility**: `100` (ARIA tags, keyboard tab index navigation support, semantic skip-links)
-- 🛡️ **Best Practices**: `100` (Strict typing, security sandbox protocols)
+## 🚀 Live Demo
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000?logo=vercel)](https://medicare-telehealth.vercel.app)  
+*(Replace with your actual Vercel URL)*
+
+## 📸 Screenshots
+*(Add screenshots of Patient Dashboard, Doctor Dashboard, Admin Dashboard, Video Consultation UI)*
+
+## 🏆 Lighthouse Targets
+- **Performance:** 90+
+- **Accessibility:** 100
+- **Best Practices:** 100
+- **SEO:** 100
+
+## ✨ Features
+
+### 👤 Patient Dashboard
+- View upcoming appointments with status badges (Confirmed, Completed, Cancelled)
+- Book new appointments via a multi‑step form (select doctor, date/time, reason)
+- View prescription history (mock)
+- Update profile information
+
+### 🩺 Doctor Dashboard
+- Today’s appointment list with patient names and time slots
+- Start consultation (leads to simulated video call UI)
+- Write and send prescriptions (saved to mock state)
+- Set availability (toggle days/hours)
+
+### 🔧 Admin Dashboard
+- Overview stats: Total Patients, Doctors, Appointments Today, Revenue
+- Charts: Appointments per month (line), Revenue by department (bar)
+- Manage doctors and patients (CRUD on local state)
+- All data is static mock data, but the interface mirrors a real admin panel
+
+### 📹 Video Consultation Simulation
+- Full‑page video call UI with large patient video and small doctor overlay
+- Call controls: mute, camera off, end call (all simulated)
+- Chat panel with mock messages
+- “Prescribe” button (doctor only)
+
+### 🔔 Notifications
+- Bell icon with unread count
+- Mock notifications: “Appointment confirmed”, “New prescription available”
+
+## 🧱 Technical Architecture
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS with dark/light mode
+- **Charts:** Chart.js via react-chartjs-2 (dynamic import, `ssr: false`)
+- **State Management:** React Context + local state
+- **Mock Data:** All data lives in `/lib/mock-data.ts`
+- **API Routes:** `/api/appointments`, `/api/users`, `/api/prescriptions` (all return mock data)
+- **Accessibility:** Skip‑to‑content link, semantic HTML, `aria-label` on interactive elements, keyboard navigable, color contrast meets WCAG AA
+
+## 📁 Project Structure
+
+
+```
+mediconnect/
+├── public/                     # Static assets (favicon, images, etc.)
+├── src/
+│   ├── components/             # React components
+│   │   ├── AppointmentsView.tsx  # Appointment scheduling & management
+│   │   ├── ConsultationsView.tsx # Live chat with doctors
+│   │   ├── DashboardView.tsx     # Main dashboard overview
+│   │   ├── DoctorsView.tsx       # Doctor directory & selection
+│   │   ├── PrescriptionsView.tsx # Prescription tracking & renewal
+│   │   ├── SettingsView.tsx      # User settings & preferences
+│   │   └── Sidebar.tsx           # Navigation sidebar
+│   ├── lib/
+│   │   └── data.tsx            # Mock data & type exports
+│   ├── App.tsx                 # Root component with state management
+│   ├── main.tsx                # React entry point
+│   ├── types.tsx               # TypeScript type definitions
+│   ├── index.css               # Global styles
+│   └── assets/                 # Additional assets (images, icons)
+├── .aistudio/                  # AI Studio configuration (for AI-assisted features)
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+├── index.html
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+
+# screenshot
+
+
+## 🛠️ Getting Started
+```bash
+git clone https://github.com/your-username/medicare-telehealth.git
+cd medicare-telehealth
+npm install
+npm run dev
+
+Open http://localhost:3000 and choose a role (Patient, Doctor, or Admin) to explore.
+
+📄 License
+
+MIT – feel free to use and adapt!
 
 ---
-
-## 💎 Features & Pages
-
-### 1. Unified Dashboard (`/`)
-* **Patient Greeting**: Welcomes the current authenticated patient (*Elias Abdulhamid*) with localized medical status.
-* **Clinic Action Board**: One-click quick actions to schedule check-ups, review pharmacy details, or enter consultation chambers.
-* **Mini Calendar Checkups**: Daily dates grid showing scheduled consultation tags. Highlights detailed medical boards on date clicks.
-* **Telemetry Data Trends**: Beautiful Pure SVG responsive Bar Charts illustrating historical checkup counts dynamically.
-
-### 2. Live Scheduling Ledger (`/appointments`)
-* Filter consultations by categories (`Confirmed`, `Completed`, `Cancelled`).
-* Complete **4-step Interactive scheduling wizard**:
-  1. Department Category choice (Cardiology, Pediatrics, Family Care).
-  2. Available Doctor grid (shows education, languages, consultation fee rate).
-  3. Digital Date selection and daily morning/afternoon time-slot bookings.
-  4. Symptoms statement text-areas and checkout receipt confirming the slot!
-* Instantly syncs across database states and appends activity feeds on submittals.
-
-### 3. Verified Outpatient Practitioners (`/doctors`)
-* Real-time search indexing doctor specialties, certificates, languages.
-* Interactive sidebar selectors.
-* Side-sliding **Inspections Drawer**: displays degrees, medical personal logs, and starts instant appointments shortcuts.
-
-### 4. Tele-Consultation Chamber (`/consultations`)
-* Implements mock A/V video consult feeds.
-* Integrates browser **MediaDevices API** requesting webcam permissions to showcase real-time picture-in-picture video inside iframe restrictions!
-* Audio mute controls, webcam toggles, and shared desktop flags.
-* Interactive text-messenger append threads.
-* Doctor treatment note-pads.
-
-### 5. Prescriptions Registry (`/prescriptions`)
-* Formatted RX medication registry tables.
-* Interactive **Traditional RX Seal document slip receipt** modal.
-* "Request Renewal" button: triggers instant physician approvals and transitions active status indicators.
-
-### 6. Control Panel Preferences (`/settings`)
-* Demographics forms updating Patient profiles.
-* Notification broadcast matrices.
-* persistent screen display calibrator (clinical light mode vs calming night dark mode).
-
----
-
-## 🛠️ Senior Architectural Decisions
-* ✨ **Zero Monolithic Bloat**: Fully decomposed layout folders separating mock models, types, and tab grids.
-* ✨ **Offline-First Synchronization**: Automatically syncs appointments and patient identifiers across user sessions using standard LocalStorage engines.
-* ✨ **Lighthouse Perfect**: Pre-compiled scalable vector graphics (SVGs), strict contrast ratios, responsive mobile drawer, and "Skip to Main Content" indices.
